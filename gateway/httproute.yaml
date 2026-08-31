@@ -6,19 +6,15 @@ metadata:
   namespace: demo
 
 spec:
-
   parentRefs:
     - name: nginx-gateway
 
   rules:
-
     - matches:
-
         - path:
             type: PathPrefix
             value: /
 
       backendRefs:
-
-        - name: nginx
+        - name: test-service
           port: 80

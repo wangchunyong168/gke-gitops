@@ -10,7 +10,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/YOUR_USER/gke-gitops.git
+    repoURL: https://github.com/wangchunyong168/gke-gitops.git
     targetRevision: main
     path: gateway-api
 

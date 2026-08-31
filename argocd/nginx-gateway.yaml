@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-gateway
+  namespace: argocd
+
+  annotations:
+    argocd.argoproj.io/sync-wave: "20"
+
+spec:
+  project: default
+
+  source:
+    repoURL: ghcr.io/nginxinc/charts
+    chart: nginx-gateway-fabric
+    targetRevision: 2.3.0
+
+    helm:
+      releaseName: ngf
+
+      values: |
+        service:
+          type: LoadBalancer
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nginx-gateway
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true

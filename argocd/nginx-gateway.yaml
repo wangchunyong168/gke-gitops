@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: ghcr.io/nginxinc/charts
     chart: nginx-gateway-fabric
-    targetRevision: 2.3.0
+    targetRevision: 1.5.1
 
     helm:
       releaseName: ngf
